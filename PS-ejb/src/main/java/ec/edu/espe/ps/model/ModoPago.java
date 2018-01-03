@@ -9,6 +9,7 @@ package ec.edu.espe.ps.model;
 
 import ec.edu.espe.ps.enums.TipoPagoEnum;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -28,7 +29,7 @@ public class ModoPago implements Serializable {
     
     @Id
     @Column(name = "COD_PAGO", nullable = false)
-    private Integer codPago;
+    private Integer codigo;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_PAGO", nullable = false, length = 3)
@@ -40,18 +41,19 @@ public class ModoPago implements Serializable {
     public ModoPago() {
     }
 
-    public ModoPago(Integer codPago) {
-        this.codPago = codPago;
+    public ModoPago(Integer codigo) {
+        this.codigo = codigo;
     }
 
-
-    public Integer getCodPago() {
-        return codPago;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public void setCodPago(Integer codPago) {
-        this.codPago = codPago;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
+
+  
 
     public TipoPagoEnum getTipo() {
         return tipo;
@@ -68,21 +70,27 @@ public class ModoPago implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codPago != null ? codPago.hashCode() : 0);
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof ModoPago)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        ModoPago other = (ModoPago) object;
-        if ((this.codPago == null && other.codPago != null) || (this.codPago != null && !this.codPago.equals(other.codPago))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ModoPago other = (ModoPago) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
@@ -90,7 +98,9 @@ public class ModoPago implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.proyecto.protesis.model.ModoPago[ codPago=" + codPago + " ]";
+        return "ModoPago{" + "codigo=" + codigo + ", tipo=" + tipo + ", descripcion=" + descripcion + '}';
     }
+    
+
     
 }

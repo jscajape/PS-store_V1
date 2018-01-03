@@ -29,7 +29,7 @@ public class ModoPagoService {
         return this.modoPagoFacade.findAll();
     }
 
-    public ModoPago obtenerPorCodigo(String codigo) {
+    public ModoPago obtenerPorCodigo(Integer codigo) {
         return this.modoPagoFacade.find(codigo);
     }
 
@@ -41,7 +41,7 @@ public class ModoPagoService {
         this.modoPagoFacade.edit(modoPago);
     }
 
-    public void eliminar(String codigo) {
+    public void eliminar(Integer codigo) {
         ModoPago modoPago = this.modoPagoFacade.find(codigo);
         this.modoPagoFacade.remove(modoPago);
     }

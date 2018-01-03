@@ -30,7 +30,7 @@ public class TipoUsuarioService {
         return this.tipoUsuarioFacade.findAll();
     }
 
-    public TipoUsuario obtenerPorCodigo(String codigo) {
+    public TipoUsuario obtenerPorCodigo(Integer codigo) {
         return this.tipoUsuarioFacade.find(codigo);
     }
 
@@ -42,7 +42,7 @@ public class TipoUsuarioService {
         this.tipoUsuarioFacade.edit(tipoUsuario);
     }
 
-    public void eliminar(String codigo) {
+    public void eliminar(Integer codigo) {
         TipoUsuario tipoUsuario = this.tipoUsuarioFacade.find(codigo);
         this.tipoUsuarioFacade.remove(tipoUsuario);
     }

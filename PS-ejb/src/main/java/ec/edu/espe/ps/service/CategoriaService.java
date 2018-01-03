@@ -29,7 +29,7 @@ public class CategoriaService {
         return this.categoriaFacade.findAll();
     }
 
-    public Categoria obtenerPorCodigo(String codigo) {
+    public Categoria obtenerPorCodigo(Integer codigo) {
         return this.categoriaFacade.find(codigo);
     }
 
@@ -41,7 +41,7 @@ public class CategoriaService {
         this.categoriaFacade.edit(categoria);
     }
 
-    public void eliminar(String codigo) {
+    public void eliminar(Integer codigo) {
         Categoria categoria = this.categoriaFacade.find(codigo);
         this.categoriaFacade.remove(categoria);
     }

@@ -8,6 +8,7 @@
 package ec.edu.espe.ps.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class TipoUsuario implements Serializable {
     
     @Id
     @Column(name = "COD_TIPO_USUARIO", nullable = false)
-    private Integer codTipoUsuario;
+    private Integer codigo;
 
     @Column(name = "DESCRIPCION", nullable = false, length = 100)
     private String descripcion;
@@ -33,17 +34,20 @@ public class TipoUsuario implements Serializable {
     public TipoUsuario() {
     }
 
-    public TipoUsuario(Integer codTipoUsuario) {
-        this.codTipoUsuario = codTipoUsuario;
+    public TipoUsuario(Integer codigo) {
+        this.codigo = codigo;
     }
 
-    public Integer getCodTipoUsuario() {
-        return codTipoUsuario;
+
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public void setCodTipoUsuario(Integer codTipoUsuario) {
-        this.codTipoUsuario = codTipoUsuario;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
+
+
 
     public String getDescripcion() {
         return descripcion;
@@ -55,18 +59,24 @@ public class TipoUsuario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (codTipoUsuario != null ? codTipoUsuario.hashCode() : 0);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof TipoUsuario)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        TipoUsuario other = (TipoUsuario) object;
-        if ((this.codTipoUsuario == null && other.codTipoUsuario != null) || (this.codTipoUsuario != null && !this.codTipoUsuario.equals(other.codTipoUsuario))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TipoUsuario other = (TipoUsuario) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
@@ -74,7 +84,8 @@ public class TipoUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.proyecto.protesis.model.TipoUsuario[ codTipoUsuario=" + codTipoUsuario + " ]";
+        return "TipoUsuario{" + "codigo=" + codigo + ", descripcion=" + descripcion + '}';
     }
-    
+
+
 }

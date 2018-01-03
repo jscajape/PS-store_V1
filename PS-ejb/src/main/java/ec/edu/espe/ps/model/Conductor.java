@@ -54,13 +54,12 @@ public class Conductor implements Serializable {
         this.codigo = codConductor;
     }
 
-
-    public Integer getCodConductor() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodConductor(Integer codConductor) {
-        this.codigo = codConductor;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {

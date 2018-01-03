@@ -30,7 +30,7 @@ public class ConductorService {
         return this.conductorFacade.findAll();
     }
 
-    public Conductor obtenerPorCodigo(String codigo) {
+    public Conductor obtenerPorCodigo(Integer codigo) {
         return this.conductorFacade.find(codigo);
     }
 
@@ -42,7 +42,7 @@ public class ConductorService {
         this.conductorFacade.edit(conductor);
     }
 
-    public void eliminar(String codigo) {
+    public void eliminar(Integer codigo) {
         Conductor conductor = this.conductorFacade.find(codigo);
         this.conductorFacade.remove(conductor);
     }
