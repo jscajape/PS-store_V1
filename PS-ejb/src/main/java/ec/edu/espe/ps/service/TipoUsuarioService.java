@@ -1,0 +1,49 @@
+/*
+ * Protesis Store
+ * Aplicaciones Distribuidas
+ * NRC: 2434 
+ * Tutor: HENRY RAMIRO CORAL CORAL 
+ * 2017 (c) Protesis Store Corp.
+ */
+package ec.edu.espe.ps.service;
+
+
+import ec.edu.espe.ps.dao.TipoUsuarioFacade;
+import ec.edu.espe.ps.model.TipoUsuario;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
+/**
+ *
+ * @author Protesis Store Corp.
+ */
+@Stateless
+@LocalBean
+public class TipoUsuarioService {
+    
+    @EJB
+    private TipoUsuarioFacade tipoUsuarioFacade;
+
+    public List<TipoUsuario> obtenerTodos() {
+        return this.tipoUsuarioFacade.findAll();
+    }
+
+    public TipoUsuario obtenerPorCodigo(String codigo) {
+        return this.tipoUsuarioFacade.find(codigo);
+    }
+
+    public void crear(TipoUsuario tipoUsuario) {
+        this.tipoUsuarioFacade.create(tipoUsuario);
+    }
+
+    public void modificar(TipoUsuario tipoUsuario) {
+        this.tipoUsuarioFacade.edit(tipoUsuario);
+    }
+
+    public void eliminar(String codigo) {
+        TipoUsuario tipoUsuario = this.tipoUsuarioFacade.find(codigo);
+        this.tipoUsuarioFacade.remove(tipoUsuario);
+    }
+}
