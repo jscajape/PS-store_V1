@@ -40,12 +40,12 @@ public class Proveedor implements Serializable {
         this.codigo = codigo;
     }
 
-    public Integer getCodProveedor() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodProveedor(Integer codProveedor) {
-        this.codigo = codProveedor;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {

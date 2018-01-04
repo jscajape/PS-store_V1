@@ -29,7 +29,7 @@ public class ProveedorService {
         return this.proveedorFacade.findAll();
     }
 
-    public Proveedor obtenerPorCodigo(String codigo) {
+    public Proveedor obtenerPorCodigo(Integer codigo) {
         return this.proveedorFacade.find(codigo);
     }
 
@@ -41,7 +41,7 @@ public class ProveedorService {
         this.proveedorFacade.edit(proveedor);
     }
 
-    public void eliminar(String codigo) {
+    public void eliminar(Integer codigo) {
         Proveedor proveedor = this.proveedorFacade.find(codigo);
         this.proveedorFacade.remove(proveedor);
     }

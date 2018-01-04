@@ -8,38 +8,38 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <ui:composition template="/templates/plantilla.xhtml">
         <ui:define name="contenido">
-            <p:panel id="mainPnl" header="Proveedor" style="width: 50%; margin: auto;">
-                <p:dataTable var="proveedor" value="#{ProveedorBean.proveedores}" 
-                             selectionMode="single" selection="#{ProveedorBean.proveedorSel}" rowKey="#{proveedor.codigo}">
+            <p:panel id="mainPnl" header="Categoria" style="width: 50%; margin: auto;">
+                <p:dataTable var="categoria" value="#{CategoriaBean.categorias}" 
+                             selectionMode="single" selection="#{CategoriaBean.categoriaSel}" rowKey="#{categoria.codigo}">
                     <p:ajax event="rowSelect" update="@form" />
                     <p:ajax event="rowUnselect" update="@form" />
                     <p:column headerText="Codigo">
-                        <h:outputText value="#{proveedor.codigo}" />
+                        <h:outputText value="#{categoria.codigo}" />
                     </p:column>
                     <p:column headerText="Nombre">
-                        <h:outputText value="#{proveedor.nombre}" />
+                        <h:outputText value="#{categoria.nombre}" />
                     </p:column>
                     <p:column headerText="Descripcion">
-                        <h:outputText value="#{proveedor.descripcion}" />
+                        <h:outputText value="#{categoria.descripcion}" />
                     </p:column>
                 </p:dataTable>
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                <p:commandButton value="Agregar" actionListener="#{ProveedorBean.agregar()}" update="@form"/>
-                <p:commandButton id="modBtn" value="Modificar" actionListener="#{ProveedorBean.modificar()}" update="@form" disabled="#{ProveedorBean.proveedorSel eq null}"/>
-                <p:commandButton value="Eliminar" actionListener="#{ProveedorBean.eliminar()}" update="@form" disabled="#{ProveedorBean.proveedorSel eq null}" >
-                    <p:confirm header="Confirmaci&#243;n" message="Desea eliminar el Proveedor: #{ProveedorBean.proveedorSel.nombre}}" icon="ui-icon-alert" />
+                <p:commandButton value="Agregar" actionListener="#{CategoriaBean.agregar()}" update="@form"/>
+                <p:commandButton id="modBtn" value="Modificar" actionListener="#{CategoriaBean.modificar()}" update="@form" disabled="#{CategoriaBean.categoriaSel eq null}"/>
+                <p:commandButton value="Eliminar" actionListener="#{CategoriaBean.eliminar()}" update="@form" disabled="#{CategoriaBean.categoriaSel eq null}" >
+                    <p:confirm header="Confirmaci&#243;n" message="Desea eliminar la Categoria: #{CategoriaBean.categoriaSel.nombre}}" icon="ui-icon-alert" />
                 </p:commandButton>
-                <p:panel header="#{ProveedorBean.titulo} Proveedor" visible="#{ProveedorBean.habilitaForm}">
+                <p:panel header="#{CategoriaBean.titulo} Categoria" visible="#{CategoriaBean.habilitaForm}">
                     <p:panelGrid columns="3">
                         <p:outputLabel for="codigo" value="Codigo" />
-                        <p:inputText id="codigo" value="#{ProveedorBean.proveedor.codigo}" disabled="#{ProveedorBean.enModificar}" />
+                        <p:inputText id="codigo" value="#{CategoriaBean.categoria.codigo}" disabled="#{CategoriaBean.enModificar}" />
                         <p:outputLabel for="nombre" value="Nombre" />
-                        <p:inputText id="nombre" value="#{ProveedorBean.proveedor.nombre}"  />
+                        <p:inputText id="nombre" value="#{CategoriaBean.categoria.nombre}"  />
                         <p:outputLabel for="descripcion" value="Descripci&#243;n" />
-                        <p:inputText id="descripcion" value="#{ProveedorBean.proveedor.descripcion}"  />
+                        <p:inputText id="descripcion" value="#{CategoriaBean.categoria.descripcion}"  />
                     </p:panelGrid>
-                    <p:commandButton value="Aceptar" actionListener="#{ProveedorBean.guardar}" update="@form" />
-                    <p:commandButton value="Cancelar" actionListener="#{ProveedorBean.cancelar}" update="@form" />
+                    <p:commandButton value="Aceptar" actionListener="#{CategoriaBean.guardar}" update="@form" />
+                    <p:commandButton value="Cancelar" actionListener="#{CategoriaBean.cancelar}" update="@form" />
 
                 </p:panel>
 
